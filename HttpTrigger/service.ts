@@ -6,10 +6,12 @@ interface IFish {
   name: string;
 }
 
-const fishes: IFish[] = _.range(1000).map((i) => {
+const _fishes = [...new Set(_.range(1000).map(() => fish()))];
+
+const fishes: IFish[] = _fishes.map((i,_i) => {
   return {
-    id: i,
-    name: fish(),
+    id: _i,
+    name: i,
   };
 });
 
